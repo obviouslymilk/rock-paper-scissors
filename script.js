@@ -32,7 +32,7 @@ function playRound(compSelection, playerSelection) {
     const lossMessage = `Your ${playerSelection} was beaten by enemy's ${compSelection}!`;
     
     if (compSelection === playerSelection)
-        return `Draw! You both choosed ${compSelection}`;
+        return `Draw! You both choosed ${compSelection}.`;
 
     function loss() {
         computerScore += scoreForWin;
@@ -75,7 +75,7 @@ function game(e)
     const selection = button.dataset.item;
     
     result.innerText = playRound(computerPlay(Items), selection);
-    scores.innerText = `Your score: ${playerScore} | Computer score: ${computerScore}`;
+    scores.innerText = `Your score: ${playerScore} — Computer score: ${computerScore}`;
 }
 
 buttons.forEach(button => button.addEventListener('click', game))
