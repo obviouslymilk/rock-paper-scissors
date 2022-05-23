@@ -1,10 +1,14 @@
-// создать функцию для компьютера, который случайным образом будет выбирать предмет
-// создать функцию раунда, которая будет обрабатывать выбор игрока и возвращать результат
-// игра должна проходить в 5 раундов
+const scores = document.querySelector('.scores');
+const buttons = document.querySelectorAll('button');
+const result = document.querySelector('.result');
+
+const scoreForWin = 5;
+let playerScore = 0;
+let computerScore = 0;
 var Items = [
-    "rock",
-    "paper",
-    "scissors"
+    'rock',
+    'paper',
+    'scissors'
 ];
 
 
@@ -16,7 +20,6 @@ var Items = [
 function computerPlay(items) {
     return items[Math.floor(items.length * Math.random())];
 }
-
 
 /**
  * Выводит результаты раунда игры на основе выбранных предметов.
@@ -30,36 +33,49 @@ function playRound(compSelection, playerSelection) {
     
     if (compSelection === playerSelection)
         return `Draw! You both choosed ${compSelection}`;
+
+    function loss() {
+        computerScore += scoreForWin;
+        return lossMessage;
+    }
+
+    function win() {
+        playerScore += scoreForWin;
+        return winMessage;
+    }
+    
     
     switch (playerSelection) {
-        case "rock":
-            if (compSelection == "paper")
-                return lossMessage;
+        case 'rock':
+            if (compSelection == 'paper')
+                return loss();
             else
-                return winMessage;
-        case "paper":
-            if (compSelection == "scissors")
-                return lossMessage;
+                return win();
+        case 'paper':
+            if (compSelection == 'scissors')
+                return loss();
             else
-                return winMessage;
-        case "scissors":
-            if (compSelection == "rock")
-                return lossMessage;
+                return win();
+        case 'scissors':
+            if (compSelection == 'rock')
+                return loss();
             else
-                return winMessage;
+                return win();
     }
 }
 
 
-function game() {
-    let playerSelection = undefined;
-    do {
-        playerSelection = prompt("Please, selecy your item: Rock, Paper or Scissors!").toLowerCase();
-    } while (!Items.includes(playerSelection));
-
-    console.log(playRound(computerPlay(Items), playerSelection));
+/**
+ * 
+ * @param {PointerEvent} e click event object.
+ */
+function game(e)
+{
+    const button = e.target;
+    const selection = button.dataset.item;
+    
+    result.innerText = playRound(computerPlay(Items), selection);
+    scores.innerText = `Your score: ${playerScore} | Computer score: ${computerScore}`;
 }
 
-for (let i = 0; i < 5; i++) {
-    game();
-}
+buttons.forEach(button => button.addEventListener('click', game))
