@@ -5,8 +5,8 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    const choosedObject = promt("Select rock, paper or scissors").toLowerCase();
-    if (objects.find(choosedObject) === undefined) {
+    const choosedObject = prompt("Select rock, paper or scissors").toLowerCase();
+    if (objects.find((v, i) => v === choosedObject ? true : false) === undefined) {
         return getPlayerChoice()
     }
     return choosedObject;
