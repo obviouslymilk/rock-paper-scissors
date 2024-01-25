@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div id="header">
+        <h1>Rock, Paper, Scissors!</h1>
+    </div>
+    <div id="content">
+        <div id="results-container">
+            <h2>Status</h2>
+            <div id="images-container">
+                <img id="player-image" src="./images/think.svg" alt="Thinking Face">
+                <img id="computer-image" src="./images/think.svg" alt="Thinking Face">
+            </div>
+        </div>
+        <div class="controls-container">
+            <h2>Make your choice!</h2>
+            <button class="object-button" id="rock"></button>
+            <button class="object-button" id="paper"></button>
+            <button class="object-button" id="scissors"></button>
+        </div>
+    </div>
+    <div id="footer"></div>
 </body>
 </html>
