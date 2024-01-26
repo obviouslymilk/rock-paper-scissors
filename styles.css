@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    color: #27181e;
 }
 
 body {
@@ -57,4 +58,46 @@ body {
 #images-container img {
     flex: 0 1 200px;
     filter: drop-shadow(3px 5px 20px rgba(245, 90, 28, 0.4));
+}
+
+#controls-container {
+    width: 900px;
+    text-align: center;
+}
+
+#controls-container h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+#buttons {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-around;
+}
+
+.object-button {
+    flex: 1 1 auto;
+    background: none;
+    border: none;
+}
+
+.button-image {
+    height: 200px;
+    filter: drop-shadow(3px 5px 20px rgba(245, 90, 28, 0.5));
+    transition: all 0.2s ease-out;
+}
+
+.button-image:hover {
+    transform: scale(1.1);
+    transform: rotate(3deg);
+}
+
+.button-label {
+    color: white;
+    background-color: #27181e;
+    padding: 0.2em 1em;
+    width: fit-content;  
+    margin: 0 auto;
+    font-size: 20px;
 }
